@@ -24,9 +24,7 @@ def index():
         locale_value = locale.currency(item.value, grouping=True, symbol=None)
         item.new_value = locale_value
 
-        print(f'supplier {item.id_supplier}')
         if (item.id_supplier != None):
-            print('entrou')
             filter_supplier = Supplier.query.filter_by(id=item.id_supplier).first()
             supplier_name = filter_supplier.name
             item.supplier_name = supplier_name
