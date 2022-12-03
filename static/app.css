@@ -1,0 +1,13 @@
+.inputBox {
+    width: 500px
+}
+
+.buttons{
+    margin-top: 15px
+}
+
+.table-overflow {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px
+}

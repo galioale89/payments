@@ -1,0 +1,49 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+
+        <a class="btn btn-primary" href="{{ url_for('payment.new') }}">Novo</a>
+        <a class="btn btn-primary" href="{{ url_for('logon.login') }}">Login</a>
+        <a class="btn btn-warning" href="{{ url_for('logon.logout') }}">Logout</a>
+
+        <div class="table-overflow">
+            <table class="table table-overflow table-striped table-responsive table-bordered">
+                <thead class="thead-default">
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Data Pagamento</th>
+                        <th>Valor</th>
+                        <th>Fornecedor</th>
+                        <th>Pagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for payment in payments %}
+                    <tr>
+                        <td>{{ payment.code }}</td>
+                        <td>{{ payment.description }}</td>
+                        <td>{{ payment.pay_new_date }}</td>
+                        <td>{{ payment.new_value }}</td>
+                        <td>{{ payment.supplier_name}}</td>
+
+                        <td>
+                            {% if payment.type_paid %}
+                            Pago
+                            {% else %}
+                            <a class="btn btn-primary" href="{{ url_for('payment.new_pay', id=payment.id) }}">
+                                 Pagar
+                             </a>
+                            {% endif %}
+                            <a class="btn btn-primary" href="{{ url_for('payment.edit', id=payment.id) }}">
+                                 Editar
+                             </a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}

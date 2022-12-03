@@ -1,0 +1,41 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+
+<form method="post" action={{url_for('payment.pay')}}>
+     <fieldset>
+         {{form.csrf_token()}}
+         <input type="hidden" name="id" value="{{id}}" />
+         <div class="form-group inputBox">
+             {{ form.code.label(class="form-label")}}
+             {{ form.code(class="form-control")}}
+         </div>
+         <div class="form-group inputBox">
+             {{ form.description.label(class="form-label") }}
+             {{ form.description(class="form-control") }}
+         </div>
+         <div class="form-group inputBox">
+             {{ form.due_date.label(class="form-label") }}
+             {{ form.due_date(class="form-control") }}
+         </div>
+         <div class="form-group inputBox">
+             {{ form.pay_date.label(class="form-label") }}
+             {{ form.pay_date(class="form-control") }}
+         </div>
+         <div class="form-group inputBox">
+             {{ form.value.label(class="form-label") }}
+             {{ form.value(class="form-control") }}
+         </div>
+         <div class="form-group inputBox ">
+            {{form.supplier.label(class="form-label")}}
+            {{form.supplier(class="form-control")}}
+         </div>
+         <div class="form-group buttons">
+            {{ form.save(class="btn btn-primary") }}
+            <a class="btn btn-danger" href="{{url_for('payment.index')}}">Voltar</a>
+        </div>
+     </fieldset>
+
+</form>
+
+{% endblock %}
