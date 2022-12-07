@@ -17,7 +17,7 @@ except mysql.connector.Error as err:
 
 
 cursor = conn.cursor()
-cursor.execute("DROP DATABASE IF EXISTS `mekal`")
+# cursor.execute("DROP DATABASE IF EXISTS `mekal`")
 cursor.execute("CREATE DATABASE `mekal`")
 cursor.execute("USE `mekal`")
 
