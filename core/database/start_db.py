@@ -7,7 +7,7 @@ try:
     conn = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='64l10770'
+        password=''
     )
 except mysql.connector.Error as err:
     if (err.errno == errorcode.ER_ACCESS_DENIED_ERROR):
