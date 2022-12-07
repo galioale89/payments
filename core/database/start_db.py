@@ -7,7 +7,7 @@ try:
         host='localhost',
         user='root',
         password='64l10770'
-    );
+    )
 except mysql.connector.Error as err:
     if (err.errno == errorcode.ER_ACCESS_DENIED_ERROR):
         print('There is something wrong with username and password!')
@@ -95,7 +95,6 @@ payments = [('Pagamento Teste', 1,'123456', 100.00, '2020-01-01', '2020-01-01')]
 
 cursor.executemany(payment_sql, payments)
 cursor.execute('select * from mekal.payment')
-
 print('-------------- Payments ----------')
 for payment in cursor.fetchall():
     print(payment[1])
