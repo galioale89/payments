@@ -9,13 +9,14 @@ try:
         user='root',
         password='64l10770'
     )
+    print(f'conn {conn}')
 except mysql.connector.Error as err:
     if (err.errno == errorcode.ER_ACCESS_DENIED_ERROR):
         print('There is something wrong with username and password!')
     else:
         print(err)
 
-print(f'conn {conn}')
+
 cursor = conn.cursor()
 cursor.execute("DROP DATABASE IF EXISTS `mekal`")
 cursor.execute("CREATE DATABASE `mekal`")
