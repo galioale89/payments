@@ -7,7 +7,6 @@ try:
     conn = mysql.connector.connect(
         host='localhost',
         user='galiotto',
-        user='galiotto',
         password='64l10770'
     )
 except mysql.connector.Error as err:
