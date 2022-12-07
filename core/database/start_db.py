@@ -36,7 +36,7 @@ TABLES['User'] = ('''
 CREATE TABLE `user` (
     `name` varchar(100) NOT NULL,
     `nickname` varchar(10) NOT NULL,
-    `password` varchar(10) NOT NULL,
+    `password` varchar(100) NOT NULL,
     PRIMARY KEY (`nickname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;''')
 
@@ -89,9 +89,9 @@ for supplier in cursor.fetchall():
 
 # insert payments
 payment_sql = (
-    'INSERT INTO payment (description, code, value, pay_date, due_date) VALUES (%s,%s,%s,%s,%s)')
+    'INSERT INTO payment (description, type, code, value, pay_date, due_date) VALUES (%s, %s,%s,%s,%s,%s)')
 
-payments = [('Pagamento Teste', '123456', 100.00, '2020-01-01', '2020-01-01')]
+payments = [('Pagamento Teste', 1,'123456', 100.00, '2020-01-01', '2020-01-01')]
 
 cursor.executemany(payment_sql, payments)
 cursor.execute('select * from mekal.payment')
